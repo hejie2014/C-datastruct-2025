@@ -9,6 +9,7 @@
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
             "environment": [],
+           // "externalConsole": falese,
             "externalConsole": false,
             "MIMode": "gdb",
             "miDebuggerPath": "E:\\Msys2\\ucrt64\\bin\\gdb.exe",
