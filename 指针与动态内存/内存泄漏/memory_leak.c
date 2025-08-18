@@ -2,11 +2,12 @@
 #include <stdlib.h>
 #include <time.h>
 
-int cash = 100;
-void Play(int bet);
+// int cash = 100;
+void Play(int bet, int *cash);
 int main()
 {
     int bet = 0;
+    int cash = 100;
     printf("***Welcome to the Virtual Casino !***\n");
     printf("Total cash = $%d\n", cash);
 
@@ -20,14 +21,14 @@ int main()
             // break;
             continue;
         }
-        Play(bet);
+        Play(bet, &cash);
         printf("\n********************************\n");
     }
 
     return 0;
 }
 
-void Play(int bet)
+void Play(int bet, int *cash)
 {
     char C[3] = {'J', 'Q', 'K'};
     printf("Shuffling.....");
@@ -47,12 +48,12 @@ void Play(int bet)
     scanf("%d", &playerGuess);
     if (C[playerGuess - 1] == 'Q')
     {
-        cash += (3 * bet);
-        printf("You Win ! Result = \"%c %c %c\" Total Cash = %d\n", C[0], C[1], C[2], cash);
+        *cash += (3 * bet);
+        printf("You Win ! Result = \"%c %c %c\" Total Cash = %d\n", C[0], C[1], C[2], *cash);
     }
     else
     {
-        cash -= bet;
-        printf("You Lose ! Result = \"%c %c %c\" Total Cash = %d\n", C[0], C[1], C[2], cash);
+        *cash -= bet;
+        printf("You Lose ! Result = \"%c %c %c\" Total Cash = %d\n", C[0], C[1], C[2], *cash);
     }
 }
